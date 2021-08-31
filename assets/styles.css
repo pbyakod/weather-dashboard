@@ -2,5 +2,14 @@
     background-color: black;
     color: white;
     text-align: center;
-    padding: 30px;
+    padding: 1.875rem;
+}
+
+.minimize {
+    display: none;
+}
+
+.weather-icon {
+    height: 3.125rem;
+    width: 3.125rem;
 }
