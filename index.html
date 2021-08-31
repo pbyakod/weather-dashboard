@@ -21,31 +21,108 @@
                 <h2>Search for a city</h2>
                 <div class="input-group" id="search-city">
                     <input type="text" class="form-input input-group-text col-9 mr-2" id="city-input" name="city"/>
-                    <button type="button" class="btn btn-info col-3" id="search-btn">Search</button>
+                    <button type="button" class="btn btn-primary col-3" id="search-btn">Search</button>
                 </div>
                 <div class="card mt-4" id="search-history">
-                    <h3 class="card-header bg-white">Search History</h3>
+                    <h3 class="p-3">Search History</h3>
                 </div>
         </div>
 
-        <div class="col-md-5 city-forecast hide">
+        <div class="col-md-7 city-forecast hide">
+
             <div class="card bg-color-light mt-4 mt-md-0">
                 <div class="container">
-                    <div class="row">
+                    <div class="row mt-4 mb-4">
                         <h4>
-                            <span class="align-middle" id="city-name">City Name</span>
-                            <img class="weather-icon" id="today-icon" />
+                            <span id="city-name">City Name</span>
+                            <img class="weather-icon" id="weather-icon" />
                         </h4>
                     </div>
                     <div class="row">
                         <div class="col-12 col-md-6">
-                            <p>Temperature: <span id="temp"></span> &deg;F</p>
+                            <p>Temperature: <span id="temperature"></span> F</p>
                             <p>Wind Speed: <span id="wind-speed"></span> MPH</p>
                             <p>Humidity: <span id="humidity"></span>%</p>
                             <p>UV Index: <span id="uv-index"></span></p>
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="card mt-4">
+                <h3 class="mt-4 mb-4 p-3">5 Day Forecast</h3>
+                <div class="container p-3">
+                    <div class="row row-cols-1 row-cols-md-5">
+                        
+                        <div class="col">
+                            <div class="card bg-primary text-light p-3 mb-3 mb-md-0">
+                                <p class="badge badge-light mb-1" id="day-1"></p>
+                                <h4>
+                                    <img class="weather-icon" id="icon-1">
+                                    <span id="temp-1"></span> F
+                                </h4>
+                                <p>High: <span id="high-1"></span> F</p>
+                                <p>Low: <span id="low-1"></span> F</p>
+                                <p>Humidity: <span id="humidity-1"></span>%</p>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card bg-primary text-light p-3 mb-3 mb-md-0">
+                                <p class="badge badge-light mb-1" id="day-2"></p>
+                                <h4>
+                                    <img class="weather-icon" id="icon-2">
+                                    <span id="temp-2"></span> F
+                                </h4>
+                                <p>High: <span id="high-2"></span> F</p>
+                                <p>Low: <span id="low-2"></span> F</p>
+                                <p>Humidity: <span id="humidity-2"></span>%</p>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card bg-primary text-light p-3 mb-3 mb-md-0">
+                                <p class="badge badge-light mb-1" id="day-3"></p>
+                                <h4>
+                                    <img class="weather-icon" id="icon-3">
+                                    <span id="temp-3"></span> F
+                                </h4>
+                                <p>High: <span id="high-3"></span> F</p>
+                                <p>Low: <span id="low-3"></span> F</p>
+                                <p>Humidity: <span id="humidity-3"></span>%</p>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card bg-primary text-light p-3 mb-3 mb-md-0">
+                                <p class="badge badge-light mb-1" id="day-4"></p>
+                                <h4>
+                                    <img class="weather-icon" id="icon-4">
+                                    <span id="temp-4"></span> F
+                                </h4>
+                                <p>High: <span id="high-4"></span> F</p>
+                                <p>Low: <span id="low-4"></span> F</p>
+                                <p>Humidity: <span id="humidity-4"></span>%</p>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card bg-primary text-light p-3 mb-3 mb-md-0">
+                                <p class="badge badge-light mb-1" id="day-5"></p>
+                                <h4>
+                                    <img class="weather-icon" id="icon-5">
+                                    <span id="temp-5"></span> F
+                                </h4>
+                                <p>High: <span id="high-5"></span> F</p>
+                                <p>Low: <span id="low-5"></span> F</p>
+                                <p>Humidity: <span id="humidity-5"></span>%</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </body>
