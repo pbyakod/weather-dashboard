@@ -1,14 +1,16 @@
+/* styling the jumbotron based on the gitlab mockup */
 .jumbotron {
     background-color: black;
     color: white;
     text-align: center;
     padding: 1.875rem;
 }
-
+/* hiding the weather data column before a search entry */
 .minimize {
     display: none;
 }
 
+/* making the weather icons the same size for aesthetic */
 .weather-icon {
     height: 3.125rem;
     width: 3.125rem;

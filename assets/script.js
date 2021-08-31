@@ -57,7 +57,6 @@ var getWeather = function (readable, longitude, latitude) {
             response.json()
             .then(function (data) {
                 readableEl.textContent = `Selected City: ${readable} ${moment().format("M/D/YYYY")}`; 
-                console.log(data)
                 // move on to presenting both current weather and five day forecast
                 presentForecast(data);
                 fiveDayForecast(data);
