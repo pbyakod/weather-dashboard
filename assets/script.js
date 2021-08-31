@@ -71,7 +71,7 @@ function presentForecast(data) {
     // displaying the temp, humidity, windspeed and uv index of that city
     tempEl.textContent = data.current['humidity'];
     humidityEl.textContent = data.current['humidity'];
-    windEl.textContent = data.current['wind_speed'];
+    windEl.textContent = data.current['wind-speed'];
     checkUVIcolor(uvIndexEl);
     uvIndexEl.textContent = data.current['uv-index'];
 }
@@ -79,11 +79,71 @@ function presentForecast(data) {
 // checking what level of uvIndex the city's currently at
 function checkUVIcolor(uvIndexEl) {
     if(uvIndexEl <= 2) {
-        uvIndexEl.style.color = "green";
+        uvIndexEl.setAttribute('style', 'background-color: green');
     } else if(uvIndexEl > 2 && uvIndexEl <= 5) {
-        uvIndexEl.style.color = "yellow";
+        uvIndexEl.setAttribute('style', 'background-color: yellow');
     } else {
-        uvIndexEl.style.color = "red";
+        uvIndexEl.setAttribute('style', 'background-color: red');
     }
 }
 
+function fiveDayForecast(data) { 
+    var day1El = document.getElementById('#day-1');
+    var icon1Img = document.getElementById('#icon-1');
+    var icon1Text = forecast.daily[1].weather[0].icon;
+    var humidity1El = document.getElementById('#humidity-1');
+
+    var day2El = document.getElementById('#day-2');
+    var icon2Img = document.getElementById('#icon-2');
+    var icon2Text = forecast.daily[2].weather[0].icon;
+    var humidity2El = document.getElementById('#humidity-2');
+
+    var day3El = document.getElementById('#day-3');
+    var icon3Img = document.getElementById('#icon-3');
+    var icon3Text = forecast.daily[3].weather[0].icon;
+    var humidity3El = document.getElementById('#humidity-3');
+
+    var day4El = document.getElementById('#day-4');
+    var icon4Img = document.getElementById('#icon-4');
+    var icon4Text = forecast.daily[4].weather[0].icon;
+    var humidity4El = document.getElementById('#humidity-4');
+
+    var day5El = document.getElementById('#day-5');
+    var icon5Img = document.getElementById('#icon-5');
+    var icon5Text = forecast.daily[5].weather[0].icon;
+    var humidity5El = document.getElementById('#humidity-5');
+
+    var index = 1;
+    while (index < 6) {
+        if(index == 1) {
+            day1El.textContent = moment().add(1, 'days').format('MM/DD/YYYY');
+            icon1Img.setAttribute('src', `http://openweathermap.org/img/wn/${icon1Text}.png`);
+            icon1Img.setAttribute('alt', forecast.daily[1].weather[0].main);
+            humidity1El.textContent = data.daily[1].humidity
+        }
+        if(index == 2) {
+            day2El.textContent = moment().add(2, 'days').format('MM/DD/YYYY');
+            icon2Img.setAttribute('src', `http://openweathermap.org/img/wn/${icon2Text}.png`);
+            icon2Img.setAttribute('alt', forecast.daily[2].weather[0].main);
+            humidity2El.textContent = data.daily[2].humidity
+        }
+        if(index == 3) {
+            day3El.textContent = moment().add(3, 'days').format('MM/DD/YYYY');
+            icon3Img.setAttribute('src', `http://openweathermap.org/img/wn/${icon3Text}.png`);
+            icon3Img.setAttribute('alt', forecast.daily[3].weather[0].main);
+            humidity3El.textContent = data.daily[3].humidity
+        }
+        if(index == 4) {
+            day4El.textContent = moment().add(4, 'days').format('MM/DD/YYYY');
+            icon4Img.setAttribute('src', `http://openweathermap.org/img/wn/${icon4Text}.png`);
+            icon4Img.setAttribute('alt', forecast.daily[4].weather[0].main);
+            humidity4El.textContent = data.daily[4].humidity
+        }
+        if(index == 5) {
+            day5El.textContent = moment().add(5, 'days').format('MM/DD/YYYY');
+            icon5Img.setAttribute('src', `http://openweathermap.org/img/wn/${icon5Text}.png`);
+            icon5Img.setAttribute('alt', forecast.daily[5].weather[0].main);
+            humidity5El.textContent = data.daily[5].humidity
+        }
+    }
+}
