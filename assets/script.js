@@ -49,5 +49,41 @@ var getWeather= function(readable, longitude, latitude, apiKey) {
     })
     .then((data) => {
         readableEl.textContent = `${readable} ${moment().format("M/D/YYYY")}`; 
+        presentForecast(data);
     })
 }
+
+// creating function to display the current forecast data for that city
+function presentForecast(data) {
+    // list of local elements grabbed from html
+    var forecastEl = document.getElementById('#forecast');
+    var weatherIconEl = document.getElementById('#weather-icon');
+    var tempEl = document.getElementById('#temperature');
+    var humidityEl = document.getElementById('#humidity');
+    var windEl = document.getElementById('#wind-speed');
+    var uvIndexEl = document.getElementById('#uv-index');
+    // revealing the forecast column we initially hid
+    forecastEl.classList.remove('minimize');
+    // displaying the openweathermap icons for that city's weather
+    var displayIcon = data.current.weather[0].icon;
+    weatherIconEl.setAttribute('src', `http://openweathermap.org/img/wn/${displayIcon}.png`);
+    weatherIconEl.setAttribute('alt', data.current.weather[0].main);
+    // displaying the temp, humidity, windspeed and uv index of that city
+    tempEl.textContent = data.current['humidity'];
+    humidityEl.textContent = data.current['humidity'];
+    windEl.textContent = data.current['wind_speed'];
+    checkUVIcolor(uvIndexEl);
+    uvIndexEl.textContent = data.current['uv-index'];
+}
+
+// checking what level of uvIndex the city's currently at
+function checkUVIcolor(uvIndexEl) {
+    if(uvIndexEl <= 2) {
+        uvIndexEl.style.color = "green";
+    } else if(uvIndexEl > 2 && uvIndexEl <= 5) {
+        uvIndexEl.style.color = "yellow";
+    } else {
+        uvIndexEl.style.color = "red";
+    }
+}
+
